@@ -340,10 +340,10 @@ Fissiamo un tempo $T > 0$, e sia $A_T$ l'insieme delle orbite di periodo incluso
 	Siccome $\OO$ è un orbita periodica, $\phi_T$ è ben definito su tutto $\OO$. Inoltre, $\phi_T$ è anche ben definita su un aperto $W$ relativamente compatto che separa $\OO$ dalle altre orbite. In particolare, il flusso $\phi_\tau$ non ha punti fissi su $\partial W$ per ogni $\tau \in (0,T]$. Conseguentemente, per la proprietà di omotopia, $\ind(\phi_\tau,U)$ non dipende da $\tau$. Inoltre, siccome $\OO$ è non banale, esiste un periodo minimale positivo $\sigma > 0$ di $\OO$. Quindi $\ind(\phi_{\sigma/2}, W) = 0$ in quanto $\phi_{\sigma/2}$ è libero da punti fissi sa $\overline{W}$. Infine l'indice calcolato coincide con $\ind(\phi_\tau,U)$ per ogni $\tau \in (0,T]$.
 \end{proof}
 \begin{Lemma}
-	Supponiamo che $\phi_T$ sia ben definito su un aperto $U$ relativamente compatto, e supponiamo che esistono solo un numero finito di orbite che incontrano $\cl{U}$. Allora se $ \phi_\sigma$, $\phi_\tau$ non hanno punti fissi su $\partial U$, l'indice di punti dei due flussi coincide ($\sigma, \tau \in (0,T]$).
+	Supponiamo che $\phi_T$ sia ben definito su un aperto $U$ relativamente compatto, e supponiamo che esistono solo un numero finito di orbite di periodo in $(0,T]$ che incontrano $\cl{U}$. Allora se $ \phi_\sigma$, $\phi_\tau$ non hanno punti fissi su $\partial U$, l'indice di punti dei due flussi coincide ($\sigma, \tau \in (0,T]$).
 \end{Lemma}
 \begin{proof}
-	Siano $\OO_1, \dots, \OO_n$ le orbite non banali, e siano $W_1, \dots, W_n$ aperti separanti (in senso forte). Per il lemma precedente sappiamo che 
+	Siano $\OO_1, \dots, \OO_n$ le orbite non banali incluse in $A_T$, e siano $W_1, \dots, W_n$ aperti separanti (in senso forte). Per il lemma precedente sappiamo che 
 	\[
 		\ind(\phi_\tau, W_i) = \ind(\phi_\sigma, W_i) = 0\,.
 	\]
@@ -356,7 +356,7 @@ Fissiamo un tempo $T > 0$, e sia $A_T$ l'insieme delle orbite di periodo incluso
 	\end{split}
 	\]
 	
-	Ma su $U$ le orbite periodiche sono solo singolari.
+	Ma su $\cl{U}$ le orbite periodiche di $A_T$ sono solo singolari. Conseguentemente l'omotopia sui tempi tra $\phi_\tau$ e $\phi_\sigma$ non può avere punti fissi in $\partial U$ ed è accettabile.
 \end{proof}
 
 \printbibliography

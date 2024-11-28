@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.27)  28 NOV 2024 09:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.27)  28 NOV 2024 11:08
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -723,7 +723,9 @@ ML/cmm/m/it/10.95 ;  \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 W\OT1/cmr/m/n/10.9
 
 
 
-[7] (./TopologicalMethodsNonLinear.aux)
+[7]
+
+[8] (./TopologicalMethodsNonLinear.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-11-02>
@@ -737,13 +739,13 @@ Package logreq Info: Writing requests to 'TopologicalMethodsNonLinear.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 20033 strings out of 473330
- 345490 string characters out of 5723877
- 1188882 words of memory out of 5000000
- 42895 multiletter control sequences out of 15000+600000
+ 20037 strings out of 473330
+ 345556 string characters out of 5723877
+ 1190882 words of memory out of 5000000
+ 42897 multiletter control sequences out of 15000+600000
  573410 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,8n,81p,716b,1819s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 70i,15n,81p,734b,1819s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
 live/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2024/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dis
@@ -761,10 +763,10 @@ uper/sfbx1440.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1
 095.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c
 :/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb><c:/texlive/
 2024/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on TopologicalMethodsNonLinear.pdf (7 pages, 276168 bytes).
+Output written on TopologicalMethodsNonLinear.pdf (8 pages, 278615 bytes).
 PDF statistics:
- 199 PDF objects out of 1000 (max. 8388607)
- 150 compressed objects within 2 object streams
- 54 named destinations out of 1000 (max. 500000)
+ 205 PDF objects out of 1000 (max. 8388607)
+ 155 compressed objects within 2 object streams
+ 56 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

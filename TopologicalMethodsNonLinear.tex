@@ -337,7 +337,27 @@ Fissiamo un tempo $T > 0$, e sia $A_T$ l'insieme delle orbite di periodo incluso
 	Se $\OO$ è un'orbita isolata di $A_T$ non banale, allora esiste un intorno aperto $W$ di $\OO$ per cui, per ogni $\tau \in (0,T]$, il flusso $\phi_\tau$ è ben definito su $\cl{W}$, è ammissibile in $W$ per l'indice di punto fisso, e $\ind(\phi_\tau,W) = 0$.
 \end{Lemma}
 \begin{proof}
-	contenuto...
+	Siccome $\OO$ è un orbita periodica, $\phi_T$ è ben definito su tutto $\OO$. Inoltre, $\phi_T$ è anche ben definita su un aperto $W$ relativamente compatto che separa $\OO$ dalle altre orbite. In particolare, il flusso $\phi_\tau$ non ha punti fissi su $\partial W$ per ogni $\tau \in (0,T]$. Conseguentemente, per la proprietà di omotopia, $\ind(\phi_\tau,U)$ non dipende da $\tau$. Inoltre, siccome $\OO$ è non banale, esiste un periodo minimale positivo $\sigma > 0$ di $\OO$. Quindi $\ind(\phi_{\sigma/2}, W) = 0$ in quanto $\phi_{\sigma/2}$ è libero da punti fissi sa $\overline{W}$. Infine l'indice calcolato coincide con $\ind(\phi_\tau,U)$ per ogni $\tau \in (0,T]$.
 \end{proof}
+\begin{Lemma}
+	Supponiamo che $\phi_T$ sia ben definito su un aperto $U$ relativamente compatto, e supponiamo che esistono solo un numero finito di orbite che incontrano $\cl{U}$. Allora se $ \phi_\sigma$, $\phi_\tau$ non hanno punti fissi su $\partial U$, l'indice di punti dei due flussi coincide ($\sigma, \tau \in (0,T]$).
+\end{Lemma}
+\begin{proof}
+	Siano $\OO_1, \dots, \OO_n$ le orbite non banali, e siano $W_1, \dots, W_n$ aperti separanti (in senso forte). Per il lemma precedente sappiamo che 
+	\[
+		\ind(\phi_\tau, W_i) = \ind(\phi_\sigma, W_i) = 0\,.
+	\]
+	
+	Definendo $U_1 \deff U \setminus \bigcup_{i= 1}^n \cl{W_i}$, per escissione e additività  sappiamo che 
+	\[
+	\begin{split}
+		\ind(\phi_\tau, U) &= \ind(\phi_\tau, U_1)\\
+		\ind(\phi_\sigma, U) &= \ind(\phi_\sigma, U_1)
+	\end{split}
+	\]
+	
+	Ma su $U$ le orbite periodiche sono solo singolari.
+\end{proof}
+
 \printbibliography
 \end{document}

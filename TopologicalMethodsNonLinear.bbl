@@ -1,0 +1,57 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{FuriPeraSpadini2000}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=63f2d1e9cf833aabe42fa121e6b3d91f}{%
+           family={Furi},
+           familyi={F\bibinitperiod},
+           given={Massimo},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5fed9d8ee1d1984872aff0438dada481}{%
+           family={Pera},
+           familyi={P\bibinitperiod},
+           given={Maria\bibnamedelima Patrizia},
+           giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=0bbb635887ced084ee7483b313a108bb}{%
+           family={Spadini},
+           familyi={S\bibinitperiod},
+           given={Marco},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{b398fd584f999bad954aee14930c2d7f}
+      \strng{fullhash}{b398fd584f999bad954aee14930c2d7f}
+      \strng{fullhashraw}{b398fd584f999bad954aee14930c2d7f}
+      \strng{bibnamehash}{b398fd584f999bad954aee14930c2d7f}
+      \strng{authorbibnamehash}{b398fd584f999bad954aee14930c2d7f}
+      \strng{authornamehash}{b398fd584f999bad954aee14930c2d7f}
+      \strng{authorfullhash}{b398fd584f999bad954aee14930c2d7f}
+      \strng{authorfullhashraw}{b398fd584f999bad954aee14930c2d7f}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The fixed point index of the Poincaré translation operator on differentiable manifolds}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

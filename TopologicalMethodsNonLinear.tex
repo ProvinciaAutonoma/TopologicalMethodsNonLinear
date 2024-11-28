@@ -1,0 +1,343 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+
+\usepackage{mathtools, amssymb}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{Def}{Definizione}
+\newtheorem*{Oss}{Osservazione}
+\theoremstyle{plain}
+\newtheorem{Lemma}[Def]{Lemma}
+\newtheorem{Prop}[Def]{Proposizione}
+\newtheorem{Teo}[Def]{Teorema}
+
+\usepackage[shortlabels]{enumitem}
+\setlist[enumerate, 1]{label = (\roman*)}
+
+
+
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\zero}{\mathbf{0}}
+\newcommand{\OO}{\mathcal{O}}
+\newcommand{\eset}{\varnothing}
+\newcommand{\restr}[2]{{#1}_{|_{#2}}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\DD}{\mathcal{D}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\cl}[1]{\overline{#1}}
+\newcommand{\deff}{\coloneqq}
+\newcommand{\clapsum}[2]{\sum_{\mathclap{#1}}^{#2}}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\fix}{fix}
+
+
+\usepackage[autostyle, italian=guillemets]{csquotes}
+\usepackage[backend=biber, style=numeric, hyperref, giveninits=true]{biblatex}
+	\addbibresource{TopologicalMethodsNonLinear.bib}
+	\DeclareFieldFormat{url}{\url{#1}}
+
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+
+\title{Topological Methods in Nonlinear Analysis \\ Appunti del Corso}
+\author{Mirko Torresani}
+\begin{document}
+\maketitle
+In tutto il corso le varietà le pensiamo sempre come embedded e lisce. 
+
+\begin{Def}
+	Una terna ammissibile è una terna $(f,U,y)$, dove 
+	\begin{enumerate}
+		\item $U$ è un aperto di $\R^k$;
+		\item $f$ è una funzione continua e propria da $\cl{U}$ in $\R^k$;
+		\item $f^{-1}(y)$ non interseca $\partial U$.
+	\end{enumerate}
+\end{Def}
+
+\begin{Def}[Grado di Brower]\label{def:gradoliscio}
+	Se $f$ è liscia, e $y$ è $f$-regolare, definiamo 
+	\[
+		\deg(f,U,y) \deff \clapsum{p \in f^{-1}(y)}{} \sgn (\det d_pf)\,.
+	\] 
+\end{Def}
+\begin{Prop}
+	Data una terna ammissibile, esiste un $\epsilon$ per cui tutte le terne $\epsilon$-vicine hanno lo stesso grado.
+\end{Prop}
+\begin{Prop}
+	Esiste un modo per assegnare ad ogni terna ammissibile un grado, che sia coerente con la Definizione \ref{def:gradoliscio}.
+\end{Prop}
+\begin{Teo}\label{teo:proprietagrado}
+	La funzione grado rispetta le seguenti proprietà:
+	\begin{enumerate}
+		\item $\deg(\id, \R^n, \zero) = 1$;
+		\item se $U_1 \cap U_2$ sono disgiunti, contenuti in $U$, la loro unione contiene la $f^{-1}(y)$, e $(f,U,y)$, $(f,U_i,y)$ sono regolari, allora
+		\[
+			\deg(f,U,y) = \deg(f,U_1,y) + \deg(f,U_2, y)\,;
+		\]
+		\item Se $H(x, \lambda)$ è un omotopia propria, e $\alpha(\lambda)$ è una curva per cui 
+		\[
+			H(x,\lambda) \neq \alpha(\lambda)\, \quad \forall x \in \partial U, \lambda \in [0,1]
+		\]
+		allora $\deg(H(\cdot, 0), U, \alpha(0))$ coincide con $\deg(H(\cdot, 1), U, \alpha(1))$.
+	\end{enumerate}
+\end{Teo}
+
+\begin{Prop}
+	Valgono le seguenti proprietà ($(f,U,y)$ sarà sempre ammissibile):
+	\begin{enumerate}
+		\item $\deg(f,\eset,y) = 0$;
+		\item se $V$ è un altro aperto per cui $f^{-1}(y) \cap U \subseteq V$, allora $\deg(f,U,y)$ coincide con $\deg(f,V,y)$;
+		\item se $\deg(f,U,y) \neq 0$, allora $f^{-1}(y)$ non è vuoto;
+		\item la terna $(f-y,U, \zero)$ è ammissibile e ha lo stesso grado di $(f,U,y)$.
+	\end{enumerate}
+\end{Prop}
+\begin{Teo}
+	La mappa $y \mapsto \deg(f,U,y)$ fornisce una mappa continua da $\R^k \setminus f(\partial U)$ a $\Z$; in particolare sulle componenti connesse è costante.
+\end{Teo}
+\begin{Teo}
+	Sia $U$ un aperto limitato, e siano $(f,U,y)$, $(g,U,y)$ ammissibili, tali che $\restr{f}{\partial U} = \restr{g}{\partial U}$. Allora i gradi delle due terne coincidono.
+\end{Teo}
+\begin{proof}
+	\emph{Siccome $U$ è limitato}, allora l'omotopia $\lambda f(x) + (1-\lambda)g(x)$ è propria. Ricordiamo che in generale combinazione lineare di mappe proprie non è propria.
+\end{proof}
+
+Se $U$ non è limitato l'enunciato è falso. Basta prendere $U = \R$, le mappe $f(x) = x$, $g(x) = -x$, ed il punto $y = 1$. La questione è che $H(x, 1/2)$ è la mappa costante nulla, che non è propria.
+
+\begin{Oss}
+	Se prendiamo il grado che conosciamo, definito su varietà, anche immerse, il teorema precedente è falso. Basta prendere $M = S^2$, $f = \id_{S^2}$, e $g$ come la riflessione di una coordinata. 
+\end{Oss}
+\begin{Teo}
+	Le richieste del Teorema \ref{teo:proprietagrado} definiscono un'unica funzione grado sulle terne ammissibili su aperti limitati.
+\end{Teo}
+
+Come sappiamo usando la funzione grado possiamo dimostrare risultati classici interessanti.
+\begin{Teo}[di Brower]
+	Una mappa dal disco in sé ammette un punto fisso.
+\end{Teo}
+\begin{Teo}
+	La chiusura di un aperto limitato non ha un retrazione continua sulla sua frontiera.
+\end{Teo}
+\begin{proof}
+	Supponiamo che esista una retrazione continua $r \colon \cl{U} \to \partial U$. Allora siccome $r$ coincide con $\id_U$ sulla frontiera, sappiamo che per ogni $y \in U$
+	\[
+		\deg(r,U,y) = \deg(\id_U, U,y) = 1
+	\]
+	Ma la preimmagine di $y$ via $r$ è vuota.
+\end{proof}
+\begin{Teo}
+	Dato un aperto limitato $U$ in $\R^k$,  $f \colon \cl{U} \to \R^k$ continua che sia $C^1$ in un intorno di $f^{-1}(0)$, e $ h \colon \cl{U} \times [0,1] \to \R^k$ tale che 
+	\begin{enumerate}
+		\item $h(x,0) = \zero$ per ogni $x \in \R$;
+		\item $f(x) + h(x, \lambda) \neq 0$ per ogni $(x,\lambda) \in \partial U \times [0,1]$;
+		\item $\det(J_f(x)) \neq 0$ per ogni $x \in f^{-1}(\zero)$;
+		\item $\sum_{f^{-1}(\zero)}\sgn(\det(J_f(0))) \neq 0$.
+	\end{enumerate}
+	Allora $f(x) + h(x,1)$ ha soluzione in $U$.
+\end{Teo}
+\begin{proof}
+	Basta prendere $H(x,\lambda) = f(x) + h(x,\lambda)$.
+\end{proof}
+
+Consideriamo la situazione in cui abbiamo un operatore lineare $L\colon \R^k \to \R^k$ e $g$ sia continua, e di voler risolvere $L(x) + g(x) = \zero$. 
+\begin{Prop}
+	L'insieme
+	\[
+		S \deff \{x \in \R^k \mid \exists \lambda \in [0,1] \textit{t.c. } L(x) + \lambda g(x) = \zero \}
+	\]
+	è limitato, e quindi per il teorema precedente il problema $L(x) +\lambda g(x) = \zero$ ha soluzione.
+\end{Prop}
+
+Vogliamo estendere quello che abbiamo fatto a varietà. Si $M \subseteq \R^k$ una varietà, e sia $U$ un aperto, $f \colon M \to M$ una mappa.
+\begin{Def}
+	Dico che la coppia $(f,U)$ è ammissibile se l'insieme
+	\[
+		\fix(f,U) \deff \{x \in U \mid f(x) = x\}
+	\]
+	è finito.
+\end{Def}
+\begin{Def}
+	Se $(f,U)$ è ammissibile, l'indice di punto fisso è definito come
+	\[
+		\ind(f,U) \deff \sum_{f(x) = x}\sgn(\det(J_f(x)))
+	\]
+\end{Def}
+Equivalentemente, posto un intorno tubolare $T$ di $M$ in $\R^k$, ed una retrazione $r \colon T \to M$, possiamo definire
+\[
+	\ind(f,U) = \deg(id-f \circ r, r^{-1}(U), \zero)\,.
+\]
+
+\begin{Prop}
+	L'indice di punto fisso possiede le seguenti proprietà:
+\begin{description}
+	\item[Normalizzazione] se $f \colon M \to M$ è costante, $\ind(f,M) = 1$;
+	\item[Additività] se $U_1$ e $U_2$ sono disgiunti, contenuti in $U$, tali che $\fix(f,U_1) \cup \fix(f,U_2)$ contenga $\fix(f,U)$, allora
+	\[
+		\ind(f,U) = \ind(f,U_1) + \ind(f,U_2)\,;
+	\]
+	\item[Omotopia] se $H(x,\lambda)$ è ammissibile, cioè 
+	\[
+		\{(x,\lambda) \mid x = H(x,\lambda)\}
+	\]
+	è compatto, allora 
+	\[
+		\inf(H(\cdot, 0), U) = \ind(H(\cdot, 1),U);
+	\]
+	\item[Località] se $(f,U)$ è ammissibile, allora $\ind(f,U) = \ind(\restr{f}{U},U)$;
+	\item[Commutatività] se $U_1$ e $U_2$ sono aperti di $M_1$ e $M_2$, e $f_1 \colon M_1 \to M_2$ e $f_2 \colon M_2 \to M_1$ sono funzioni per cui uno tra $(f_2 \circ f_1, f_1^{-1}(U_2))$, $(f_1 \circ f_2, f_2^{-1}(U_1))$ è ammissibile, allora lo è anche l'altro e
+	\[
+			\ind(f_2 \circ f_1, f_1^{-1}(U_2)) = \ind(f_1 \circ f_2, f_2^{-1}(U_1))\,;
+	\]
+	\item[Soluzione] se $\ind(f,U) \neq 0$, allora $\fix(f,U) \neq \eset$;
+	\item[Escissione] se $\fix(f,U) \subseteq U_1$, allora $\ind(f,U) =\ind(f,U_1)$;
+	\item[Moltiplicatività] siano $U_1$, $U_2$, $M_1$, $M_2$ come sopra, e $f_i \colon M_i \to M_i$ tali che $(f_i, U_i)$ siano ammissibili. Allora $(f_1 \times f_2, U_1 \times U_2)$ è ammissibile e 
+	\[
+		\ind(f_1 \times f_2, U_1 \times U_2) = \ind(f_1, U_1)\ind(f_2, U_2)\,;
+	\]
+	\item[Omotopia Generalizzata] sia $H \colon U \times [0,1]\to M$, e sia $W$ un aperto di $U \times [0,1]$.Se
+	\[
+		\{(x, \lambda) \in W \mid x = H(x,\lambda)\}
+	\]
+	è compatto, e
+	\[
+		W_\lambda \deff \{x \in M \mid (x, \lambda \in W)\}\,,
+	\]
+	allora $\ind(H(\cdot, \lambda), W_\lambda)$ è costante.
+\end{description}
+\end{Prop}
+Consideriamo ora il caso di indice di un campo vettoriale. Per fare ciò ricordiamo il seguente risultato.
+\begin{Prop}
+	Dato un campo vettoriale  $X$ su una varietà, ed uno zero $p$ di $X$, il differenziale $d_pX$ può essere canonicamente identificato con un endomorfismo dello spazio tangente a $p$.
+\end{Prop}
+
+Sia quindi una varietà $M$ embedded in $\R^k$, e sia un aperto $U$, ed un campo $f \colon U \to \R^k$. 
+\begin{Def}
+	Diciamo che $(f,U)$ ammissibile se $f$ non ha zeri in $\partial U$, e $f^{-1}(\zero)$ è compatto.
+\end{Def}
+\begin{Oss}
+	Se $f$ e $g$ sono campi per cui $\restr{f}{\partial U} = \restr{g}{\partial U}$, allora l'omotopia $H(x,\lambda) = \lambda f(x) + (1-\lambda)g(x)$ è sensata e ammissibile.
+\end{Oss}
+
+
+\begin{Lemma}
+	Se $(f,U)$ è ammissibile, allora $\deg(f,U) = (-1)^n\deg(-f,U)$, con $n$ la dimensione di $M$.
+\end{Lemma}
+
+In particolare, se $M$ è compatta senza bordo, allora per ogni campo vettoriale $f,g \colon M \to \R^k$
+\[
+	\deg(f,M) = \deg(g,M) = \chi(M)\,,
+\]
+e se $M$ ha dimensione dispari $\chi(M) = 0$.
+
+La teoria del grado trova grande applicazione nelle equazioni differenziali al primo ordine su una varietà, della forma $\dot{x} = X_t(x)$. A tal proposito fissiamo un tempo $T > 0$ e sia
+\[
+	\DD \coloneqq \{p \in M \mid \phi_t(p) \text{ è definito per } 0 \le t \le T\}\,.
+\]
+Esso è aperto, e per ogni $U \subseteq \DD$ abbiamo una mappa $\phi_T \colon U \to M$. Se $\ind(\phi_T, U)$ non è vuoto, allora abbiamo un punto fisso. per $\phi_T$.
+
+\begin{enumerate}
+	\item Se il sistema è autonomo, il punto fisso trovato dà luogo ad un'orbita periodica.
+	\item Se il sistema non è autonomo, ma $T$ è il periodo nel tempo di $f$, allora la mappa $P_T \colon U \to M$ (di ``Poincaré'') permette di trovare orbite periodiche trovandone l'indice. 
+\end{enumerate}
+
+\begin{Prop}
+	Data un'equazione della forma
+	\[
+		\begin{cases}
+			\dot{x} = f_n(t,x) \\
+			x(\tau_n) = p_n
+		\end{cases}
+	\]
+	con $f_n \underset{\infty}{\to} f$, $(\tau_n ,p_n) \to (\tau_0, p_0)$. Se $x_0(t, \tau_0, p_0)$ è definito su $[0,T]$, allora gli $x_n$ sono definite, definitivamente in $n$, fino a $[0,T]$ e vi è una convergenza uniforme $x_n \underset{\infty}{\to} x_0$.
+\end{Prop}
+\begin{Teo}[Kupka--Smale]
+	Supponiamo $f$ autonoma. A meno di perturbare $f$, esiste un numero finito di orbite periodiche con periodo in $(0,T]$. 
+\end{Teo}
+\begin{Oss}
+	Il risultato originale vuole $M$ compatta, Peixoto dimostrò che il teorema vale anche con $M$ non compatta, col caveat di scegliere l'opportuna topologia per lo spazio delle funzioni (per esempio quella di \emph{convergenza uniforme sui compatti}).
+\end{Oss}
+
+Riguardo ai sistemi autonomi, il prossimo risultato collega l'indice di campo con quello di punto fisso.
+\begin{Teo}
+	Dato $U \subseteq M$ relativamente compatto, se la coppia $(f,U)$ è ammissibile allora $\ind(\phi_T, U)$ coincide con $\deg(-f, U)$.
+\end{Teo}
+Prima della sua dimostrazione premettiamo dei Lemmi.
+\begin{Lemma}\label{Lemma:flowfissi}
+	Sia $K \subseteq M$ un compatto, tale che $K \cap f^{-1}(\zero) = \eset$. Allora esiste un $\tau >0 $ tale che $\phi_t$ non ha punti fissi in $K$ per ogni $t \in (-\tau, \tau)$.
+\end{Lemma}
+\begin{proof}
+	Supponiamo per assurdo che la tesi sia falsa. In particolare, esiste una successione di tempi non nulli $t_n \to 0$ e di punti $\{p_n\} \subseteq K$, tali che $p_n = \phi_{t_n}(p_n)$. Siccome $K$ è compatto, possiamo supporre che $p_n$ converga ad un certo punto $p_0 \in K$. Inoltre, sia $x_n$ la soluzione di 
+	\[
+		\begin{cases}
+			\dot{x}(t) = t_n\,f(x(t))\\
+			x(0) = p_n
+		\end{cases}
+	\]
+	
+	Innanzitutto, sappiamo che
+	\[
+		x_n(1) = \phi_1^{t_n\,f}(p_n) = \phi_{t_n}^{f}(p_n) = p_n\,,
+	\]
+	da cui
+	\[
+		\zero = x_n(1) - x_n(0) = \int_0^1t_nf (x_n(t))\,dt = t_n\int_0^1f(x_n(t))\,dt\,.
+	\]
+	
+	Possiamo quindi concludere che
+	\[
+		\zero = \lim_{n\to+\infty}\zero = \lim_{n \to +\infty}\left[\int_0^1f(x_n(t))\,dt \right] = \int_0^1f(x_0(t))\,dt = f(p_0)\,
+	\]
+	che rappresenta una contraddizione, in quanto $f$ non ha punti fissi su $K$.
+\end{proof}
+
+\begin{Lemma}\label{Lemma:degind}
+	Se $M = \R^k$, e $U$, $(f,U)$ come sopra, allora
+	\[
+		\deg(f,U) = \lim_{t \to 0^-}\deg(I-\phi_t^f,U) \quad I = \id_{\R^k}\,.
+	\]
+\end{Lemma}
+\begin{proof}
+	Questa enunciato si può trovare in \cite[Prop. 3.3]{FuriPeraSpadini2000}, dove si mostra che il limite è in verità costante per piccoli tempi.
+\end{proof}
+\begin{Prop}
+	Presa $M$ generica, e $U$, $(f,U)$ come sopra, allora
+	\[
+		\deg(f,U) = \lim_{t \to 0^-}\ind(\phi_t^f,U)\,,
+	\]
+	col limite in verità costante per $t$ piccoli.
+\end{Prop}
+\begin{proof}
+	Consideriamo la coppia $(\phi_t^f,U)$. Per $t$ piccolo sappiamo che è ammissibile per il calcolo dell'indice di punto fisso, grazie al Lemma \ref{Lemma:flowfissi} con $K \deff \partial U \subseteq M$.
+
+	Approssimiamo $f$ con un campo $\gamma$
+	\begin{enumerate}
+		\item che ha solo zeri non degeneri (i.e.\ a determinante della matrice Jacobiana non nulla);
+		\item per $t \neq 0$ piccolo $\phi_t^\gamma$ è omotopo a $\phi_t^f$ con un omotopia che è ammissibile per l'indice di punto fisso. Infatti omotopie ``piccole'' sono sempre ammissibili in quanto $\partial U$ è compatto.
+	\end{enumerate} 
+	Come conseguenza, posso sostituire $f$ con $\gamma$. 
+	
+	Definiamo $\{p_1, \dots, p_n\} = f^{-1}(\zero)$, e siano $V_1, \dots, V_n$ intorni isolanti, per cui $\cl{V_i} \cap \cl{V_j} \neq \eset$. Per il Lemma \ref{Lemma:flowfissi} $\phi_t^f$ non ha punti fissi su $U \setminus \bigcup_iV_i$. Possiamo quindi restringerci ad ognuno dei $V_i$.
+	
+	Sia $W \subseteq V_i$ che sia il dominio di un diffemorfismo $\psi \colon W \to \R^n$, e sia $\hat{f}$ il campo coniugato. Grazie al Lemma \ref{Lemma:degind} sappiamo che
+	\[
+		\deg(-\hat{f}, \psi(W)) = \ind(\psi \circ \phi_t^f \circ \psi^{-1}, \psi(W))\,.
+	\]
+	
+	Siccome $\hat{f}$ è coniugato a $f$, il grado $\deg(f,W)$ coincide col grado $(\hat{f}, \psi(W))$. 
+	
+	Infine, per la proprietà di commutatività, l'indice $\ind(\psi \circ \phi_t^f \circ \psi^{-1}, \psi(W))$ coincide con $\ind(\phi_t^f, W)$.
+\end{proof}
+
+Fissiamo un tempo $T > 0$, e sia $A_T$ l'insieme delle orbite di periodo incluso in $(0,T]$.
+\begin{Lemma}
+	Se $\OO$ è un'orbita isolata di $A_T$ non banale, allora esiste un intorno aperto $W$ di $\OO$ per cui, per ogni $\tau \in (0,T]$, il flusso $\phi_\tau$ è ben definito su $\cl{W}$, è ammissibile in $W$ per l'indice di punto fisso, e $\ind(\phi_\tau,W) = 0$.
+\end{Lemma}
+\begin{proof}
+	contenuto...
+\end{proof}
+\printbibliography
+\end{document}

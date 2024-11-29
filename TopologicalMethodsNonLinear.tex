@@ -13,6 +13,7 @@
 \newtheorem{Lemma}[Def]{Lemma}
 \newtheorem{Prop}[Def]{Proposizione}
 \newtheorem{Teo}[Def]{Teorema}
+\newtheorem{Cor}[Def]{Corollario}
 
 \usepackage[shortlabels]{enumitem}
 \setlist[enumerate, 1]{label = (\roman*)}
@@ -258,11 +259,11 @@ Esso è aperto, e per ogni $U \subseteq \DD$ abbiamo una mappa $\phi_T \colon U 
 	Supponiamo $f$ autonoma. A meno di perturbare $f$, esiste un numero finito di orbite periodiche con periodo in $(0,T]$. 
 \end{Teo}
 \begin{Oss}
-	Il risultato originale vuole $M$ compatta, Peixoto dimostrò che il teorema vale anche con $M$ non compatta, col caveat di scegliere l'opportuna topologia per lo spazio delle funzioni (per esempio quella di \emph{convergenza uniforme sui compatti}).
+	Se risultato originale vuole $M$ compatta, Peixoto \cite{Peixoto1966} dimostrò che il teorema vale anche con $M$ non compatta, col caveat di scegliere l'opportuna topologia per lo spazio delle funzioni (per esempio quella di \emph{convergenza uniforme sui compatti}).
 \end{Oss}
 
 Riguardo ai sistemi autonomi, il prossimo risultato collega l'indice di campo con quello di punto fisso.
-\begin{Teo}
+\begin{Teo}\label{teo:degind}
 	Dato $U \subseteq M$ relativamente compatto, se la coppia $(f,U)$ è ammissibile allora $\ind(\phi_T, U)$ coincide con $\deg(-f, U)$.
 \end{Teo}
 Prima della sua dimostrazione premettiamo dei Lemmi.
@@ -301,13 +302,13 @@ Prima della sua dimostrazione premettiamo dei Lemmi.
 	\]
 \end{Lemma}
 \begin{proof}
-	Questa enunciato si può trovare in \cite[Prop. 3.3]{FuriPeraSpadini2000}, dove si mostra che il limite è in verità costante per piccoli tempi.
+	Questa enunciato si può trovare in \cite[Prop. 3.3]{FuriPeraSpadini2005}, dove si mostra che il limite è in verità costante per piccoli tempi.
 \end{proof}
 \begin{Prop}
 	Presa $M$ generica, e $U$, $(f,U)$ come sopra, allora
-	\[
+	\begin{equation}\label{eq:degind}
 		\deg(f,U) = \lim_{t \to 0^-}\ind(\phi_t^f,U)\,,
-	\]
+	\end{equation}
 	col limite in verità costante per $t$ piccoli.
 \end{Prop}
 \begin{proof}
@@ -358,6 +359,115 @@ Fissiamo un tempo $T > 0$, e sia $A_T$ l'insieme delle orbite di periodo incluso
 	
 	Ma su $\cl{U}$ le orbite periodiche di $A_T$ sono solo singolari. Conseguentemente l'omotopia sui tempi tra $\phi_\tau$ e $\phi_\sigma$ non può avere punti fissi in $\partial U$ ed è accettabile.
 \end{proof}
+\begin{proof}[Dimostrazione del Teorema \ref{teo:degind}]
+	Grazie al Teorema di Kupka-Smale possiamo supporre di essere nelle ipotesi del risultato precedente. Allora, se lo usiamo con $\tau = T$, e $\sigma \to 0$. Allora per $\sigma$ piccoli otteniamo
+	\[
+		\deg(-f, U) \underset{\eqref{eq:degind}}{=} \ind(\phi_\sigma, U) = \ind(\phi_T, U)\qedhere
+	\]
+\end{proof}
 
+Osserviamo che se $g$ e $f$ sono campi che coincidono su $\partial U$, allora i gradi devono coincidere, in quanto la loro combinazione convessa è un omotopia ammissibile. Di conseguenza l'indice di $(\phi_T^f,U)$ coincide con l'indice di $(\phi_T, U)$. Osserviamo che se $f$ e $g$ coincidono su $\cl{U}$, non è vero che ciò vale per i flussi.
+\begin{Cor}\label{Cor:costantelambda}
+	Sia $U$ relativamente compatto, e $f$ un campo cui $\phi_T^f$ non ha punti fissi. Allora se consideriamo il flusso $\phi_T^{\lambda f}$, con $\lambda \in [0,1]$, l'indice $\ind(\phi_T^{\lambda f}, U)$ è indipendente da $\lambda$ se ben definito.
+\end{Cor}
+\begin{proof}
+	È un conto immediato:
+	\[
+		\ind(-\phi_T^{\lambda f}, U) = (-\phi_{\lambda T}, U) = \deg(-f,U)\,.\qedhere
+	\]
+\end{proof}
+
+Passiamo ora al caso non autonomo, in cui studiamo un'equazione del tipo:
+\[
+	\begin{cases}
+		\dot{x} = \lambda f(x,t) \\
+		x(0) = p_0
+	\end{cases}
+\]
+In questo caso ci possiamo chiedere se, posto $T$ il periodo di $f$, l'indice della mappa di Poincaré $(P^{\lambda f}_T, U)$ non dipenda da $T$. In generale è falso.
+
+Un risultato abbastanza ``soft'' è il seguente, che si può trovare in \cite{Krasnoselskii1968}.
+\begin{Prop}\label{prop:tirrever}
+	Se $f$ è $T$-periodica, $U$ è relativamente compatto, $P^f_T$ è ben definito su tutto $\cl{U}$, $P^f_t$ non ha punti fissi su $\partial U$ per $t \in (0,T]$, e $f(0,\cdot)$ non si annulla su $\partial U$, allora
+	\[
+		\ind(P^f_T, U) = \deg(-f(0,\cdot), U)\,.
+	\]
+\end{Prop}
+
+\begin{Oss}
+	Osserviamo che nel caso autonomo, abbiamo dimostrato che è sufficiente controllare i punti fissi di $P_f^T = \phi_T$, una condizione più debole di quella contenuta nel risultato precedente.
+\end{Oss}
+
+Per risolvere la questione il più possibile, il campo vettoriale mediato $\omega_f$ come
+\[
+	\omega_f(p) = \frac{1}{T}\int_0^T f(t,p)\,dt\,.
+\]
+\begin{Teo}
+	Se $U \subseteq M$ è un aperto relativamente compatto, tale che $(\omega_f,U)$ è ammissibile per il calcolo del grado, esiste un reale $\lambda_0 > 0$ per cui, per ogni $0 < \lambda \le \lambda_0$, la mappa $P_T^{\lambda f}$ è definita su $\cl{U}$, non ha punti fissi su $\partial U$, e 
+	\[
+		\ind(P_T^{\lambda f}, U) = \deg(-\omega_f, U)\,.
+	\]
+\end{Teo}
+\begin{proof}
+	Consideriamo il sistema differenziale
+	\[
+		\begin{cases}
+			\dot{x} = \lambda(\mu f(t,x) + (1-\mu) \omega_f(x))\\
+			x(0) = p
+		\end{cases}\,,
+	\]
+	con operatore di Poincaré $H_T(\lambda, \mu,p)$. Affermiamo che per $\lambda$ piccolo, nel senso della tesi, $H(\lambda, \mu, \cdot )$ non ha punti fissi su $\partial U$ per ogni $\mu \in [0,1]$.
+	
+	Supponiamo per assurdo che ciò non sia vero. Quindi esistono successioni $p_n \in \partial U$, $\lambda_n \to 0$, e $\mu_n$ per cui $H_T(\lambda_n, \mu_n, p_n) = p_n$. Sia $x_n(t) = H_t(\lambda_n,\mu_n,p_n)$ la relativa soluzione dell'equazione differenziale. Otteniamo che 
+	\[
+		\zero = H_T(\lambda_n, \mu_n, p_n) - p_n =  \lambda_n\int_0^T\mu_n f(t,x_n(t)) + (1-\mu_n) \omega_f(x_n(t))\,dt\,.
+	\]
+	
+	Per compattezza possiamo supporre che $\mu_n \to \mu_0$ e $p_n \to p_0 \in \partial U$. Inoltre, la soluzione $x_n(t)$ converge uniformemente a $x_0(t) = H_t(\lambda_0,\mu_0,p_0)$, che è necessariamente constante, in quanto $\lambda_0 = \zero$. Possiamo quindi concludere che
+	\[
+		\begin{split}
+			\zero = \lim_n\zero &= \lim_n\left[\int_0^T\mu_n f(t,x_n(t)) + (1-\mu_n) \omega_f(x_n(t))\,dt\right] \\
+			&= \int_0^T\mu_0 f(t,p_0) + (1-\mu_0) \omega_f(p_0)\,dt\\
+			&= \omega_f(p_0)
+		\end{split}
+	\]
+	Abbiamo quindi ottenuto una contraddizione, in quanto $\omega_f$ non ha zeri su $\partial U$.
+\end{proof}
+\begin{Cor}
+	Consideriamo il disco aperto $U$ in $\R^2$, ed il sistema differenziale
+	\[
+		\begin{cases}
+			\dot{x}_1 = \lambda x_2 \\
+			\dot{x}_2 = -\lambda x_1 + \lambda \sin t
+		\end{cases}\,.
+	\]
+	Esistono due valori di $\lambda$ per cui la mappa di Poincaré $P^\lambda_T$ ha indice di punto fisso diverso.
+\end{Cor}
+\begin{proof}
+	Per $\lambda = 1$ l'equazione non ammette soluzioni $2\pi$-periodiche, quindi
+	\[
+		\ind(P^\lambda_T, U) = 0\,.
+	\]
+	
+	D'altra parte, per $\lambda$ piccoli sappiamo che
+	\[
+		\ind(P_{2\pi}^\lambda, U) = \ind(P_{2\pi}^{\lambda f}, U) = \deg(-\omega,U)\,,
+	\]
+	con $f(x_1, x_2) = (x_2, -x_1 + \sin t)$ e
+	\[
+		\omega_f = \frac{1}{2\pi}\int_0^{2\pi}f(t,x_1,x_2)\,dt = (x_2, -x_1)\,.
+	\]
+	Quindi per $\lambda$ piccoli sappiamo che
+	\[
+		\ind(P_{2\pi}^\lambda,U) = 1\,.\qedhere
+	\]
+\end{proof}
+
+Osserviamo che il risultato presentato è diametralmente opposto a quanto affermato dal Corollario \ref{Cor:costantelambda} per il caso autonomo. Osserviamo che l'esempio precedente sottolinea l'importanza delle ipotesi presenti nella Proposizione \ref{prop:tirrever}. Difatti se specializziamo il caso precedente a $\lambda = 1$ otteniamo
+\[
+	\ind(P^f_{2\pi}, U) = 0 \neq 1 = \deg(-f(0,\cdot), U)\,.
+\]
 \printbibliography
+
+
 \end{document}

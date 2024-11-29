@@ -19,7 +19,7 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global/global}
-    \entry{FuriPeraSpadini2000}{article}{}{}
+    \entry{FuriPeraSpadini2005}{inbook}{}{}
       \name{author}{3}{}{%
         {{hash=63f2d1e9cf833aabe42fa121e6b3d91f}{%
            family={Furi},
@@ -37,6 +37,9 @@
            given={Marco},
            giveni={M\bibinitperiod}}}%
       }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
       \strng{namehash}{b398fd584f999bad954aee14930c2d7f}
       \strng{fullhash}{b398fd584f999bad954aee14930c2d7f}
       \strng{fullhashraw}{b398fd584f999bad954aee14930c2d7f}
@@ -49,7 +52,60 @@
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{booktitle}{Handbook of topological fixed point theory}
       \field{title}{The fixed point index of the Poincaré translation operator on differentiable manifolds}
+      \field{year}{2005}
+    \endentry
+    \entry{Krasnoselskii1968}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=d7f126f8b9c4c3ae288b79bad68bf742}{%
+           family={Krasnoselskii},
+           familyi={K\bibinitperiod},
+           given={Mark\bibnamedelima Aleksandrovich},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{d7f126f8b9c4c3ae288b79bad68bf742}
+      \strng{fullhash}{d7f126f8b9c4c3ae288b79bad68bf742}
+      \strng{fullhashraw}{d7f126f8b9c4c3ae288b79bad68bf742}
+      \strng{bibnamehash}{d7f126f8b9c4c3ae288b79bad68bf742}
+      \strng{authorbibnamehash}{d7f126f8b9c4c3ae288b79bad68bf742}
+      \strng{authornamehash}{d7f126f8b9c4c3ae288b79bad68bf742}
+      \strng{authorfullhash}{d7f126f8b9c4c3ae288b79bad68bf742}
+      \strng{authorfullhashraw}{d7f126f8b9c4c3ae288b79bad68bf742}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{19}
+      \field{series}{Translations of Mathematical Monographs}
+      \field{title}{The Operator of Translation Along the Trajectories of Differential Equations}
+    \endentry
+    \entry{Peixoto1966}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=0fc57fa2c84bf0003c2b190fb0643f6f}{%
+           family={Peixoto},
+           familyi={P\bibinitperiod},
+           given={Mauricio\bibnamedelima Matos},
+           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{0fc57fa2c84bf0003c2b190fb0643f6f}
+      \strng{fullhash}{0fc57fa2c84bf0003c2b190fb0643f6f}
+      \strng{fullhashraw}{0fc57fa2c84bf0003c2b190fb0643f6f}
+      \strng{bibnamehash}{0fc57fa2c84bf0003c2b190fb0643f6f}
+      \strng{authorbibnamehash}{0fc57fa2c84bf0003c2b190fb0643f6f}
+      \strng{authornamehash}{0fc57fa2c84bf0003c2b190fb0643f6f}
+      \strng{authorfullhash}{0fc57fa2c84bf0003c2b190fb0643f6f}
+      \strng{authorfullhashraw}{0fc57fa2c84bf0003c2b190fb0643f6f}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Differential Equations}
+      \field{title}{On an approximation theorem of Kupka and Smale}
+      \field{volume}{3}
+      \field{year}{1966}
+      \field{pages}{214\bibrangedash 227}
+      \range{pages}{14}
     \endentry
   \enddatalist
 \endrefsection
